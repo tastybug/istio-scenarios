@@ -10,17 +10,17 @@ Basic setup to ensure there is a pristine K8S cluster:
 2. Under Settings/Kubernetes, run `Reset Cluster`.
 3. Execute `./baseline.sh`
 
-## Scenario 1: VirtualHost shows different deploys as monolithic
+## Scenario 1: VirtualHost shows different deploys as monolithic system
 
 I have 2 microservices, order-microservice and user-microservice. I want to serve them publically under two FQDNs:
 
-* <first.istiodemo.io>
-* <second.istiodemo.io>
+* `first.istiodemo.io>`
+* `second.istiodemo.io`
 
-There are 2 paths that I want to expose, each of which points to either order- or user-microservice.
+Each offer 2 paths each of which points to either the order- or user-microservice.
 
-* `/order` -> order-microservice
-* `/user`  -> user-microservice
+* `$HOST/order` -> order-microservice
+* `$HOST/user`  -> user-microservice
 
 ![Visualization](./scenario1/vis.png)
 
@@ -35,6 +35,13 @@ kubectl apply -f setup.yaml
 ./remove-scenario.sh
 ```
 
-## Scenario 2
+## Scenario 2: Retries
 
-Not quite sure what this is about yet.
+to be done
+
+## Other Scenarios
+
+1. basic load balancing with DRs: https://istio.io/latest/docs/concepts/traffic-management/#load-balancing-options
+2. circuit breaking
+3. JWT
+4. namespace base authX
