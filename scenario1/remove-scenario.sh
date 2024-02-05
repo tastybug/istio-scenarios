@@ -1,0 +1,1 @@
+kubectl delete virtualservice,deployment,service,destinationrule,gateway --all
