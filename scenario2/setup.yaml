@@ -6,9 +6,10 @@ metadata:
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-svc
+  name: backend-v1-svc
   labels:
     app: backend
+    version: v1
 spec:
   ports:
   - name: http
@@ -17,6 +18,24 @@ spec:
     targetPort: 8080
   selector:
     app: backend
+    version: v1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-v2-svc
+  labels:
+    app: backend
+    version: v2
+spec:
+  ports:
+  - name: http
+    port: 8000
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: backend
+    version: v2
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -46,7 +65,7 @@ spec:
         - name: "NAME"
           value: "backend"      
         - name: "MESSAGE"
-          value: "Hello from backend-v1"    
+          value: "stable version hit"    
         - name: "TIMING_VARIANCE"
           value: "40ms"                              
         - name: "TIMING_50_PERCENTILE"
@@ -93,7 +112,7 @@ spec:
         - name: "NAME"
           value: "backend"      
         - name: "MESSAGE"
-          value: "Hello from backend-v2"        
+          value: "CANARY HIT"        
         - name: "TIMING_VARIANCE"
           value: "10ms"                              
         - name: "TIMING_50_PERCENTILE"
@@ -125,22 +144,30 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - "backend.istiodemo.io"
+    - "canary-deploy.istiodemo.io"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: backend-vs-for-gateway
+  name: canary-vs
 spec:
   hosts:
-  - "backend.istiodemo.io"
+  - "canary-deploy.istiodemo.io"
   gateways:
   - backend-gateway
   http:
   - route:
     - destination:
         # points to svc
-        host: backend-svc
+        host: backend-v1-svc
         port:
           # this points to the service
           number: 8000
+      weight: 90
+    - destination:
+        # points to svc
+        host: backend-v2-svc
+        port:
+          # this points to the service
+          number: 8000
+      weight: 10

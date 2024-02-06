@@ -1,30 +1,31 @@
-# Testing Istio Usage Scenarios
+# Istio Usage Scenarios
 
-This repository illustrates some interesting usage scenarios for Istio. To get this running, you need Docker Desktop running a K8S cluster.
+This repository illustrates some interesting usage scenarios for Istio. This project assumes that Docker Desktop is running a K8S cluster.
 
-## Preparing the Workbench: Installing/Wiping Istio
+## Preparing the Workbench by Installing & Wiping Istio
 
 Basic setup to ensure there is a pristine K8S cluster:
 
-1. Use Docker Desktop to spin up a K8S cluster; 
+1. `curl -L https://istio.io/downloadIstio | sh -`, rename the folder to `istio-dist`
+1. In Docker Desktop spin up a K8S cluster;
 2. Under Settings/Kubernetes, run `Reset Cluster`.
 3. Execute `./baseline.sh`
 
-## Scenario 1: VirtualHost shows different deploys as monolithic system
+## Scenario 1: Routing by Host and URI
 
-I have 2 microservices, order-microservice and user-microservice. I want to serve them publically under two FQDNs:
+This scenario use a `Gateway` and 2 `VirtualService`s to route to two backend `Deployment`s. These are the FQDNs:
 
 * `first.istiodemo.io>`
 * `second.istiodemo.io`
 
-Each offer 2 paths each of which points to either the order- or user-microservice.
+Each offer 2 paths each of which points to a deployment.
 
-* `$HOST/order` -> order-microservice
-* `$HOST/user`  -> user-microservice
+* `$HOST/order` -> `order-microservice`
+* `$HOST/user`  -> `user-microservice`
 
 ![Visualization](./scenario1/vis.png)
 
-### Running it
+Roll out and testing:
 
 ```
 cd scenario1
@@ -35,13 +36,27 @@ kubectl apply -f setup.yaml
 ./remove-scenario.sh
 ```
 
-## Scenario 2: Retries
+## Scenario 2: Canary Deployment to Test a New Version
 
-to be done
+This scenario has two `Deployment`s of the same application, with different `version` labels. One of the versions is to be tested on 10% of the requests. 
+
+Two `Service`s expose the `Deployment`s respectively. With the help of a `VirtualService`, there is a weighted distribution between the two applications, achieving the canary behaviour.
+
+![Visualization](./scenario2/vis.png)
+
+```
+cd scenario2
+kubectl apply -f setup.yaml
+./ping.sh
+
+# remove scenario
+./remove-scenario.sh
+```
 
 ## Other Scenarios
 
 1. basic load balancing with DRs: https://istio.io/latest/docs/concepts/traffic-management/#load-balancing-options
-2. circuit breaking
-3. JWT
-4. namespace base authX
+1. Retries
+1. circuit breaking
+1. JWT
+1. namespace base authX
