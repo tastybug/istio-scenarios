@@ -97,7 +97,7 @@ kubectl apply -f setup.yaml
 ./remove-scenario.sh
 ```
 
-![Visualization](./scenario2/vis.drawio.png)
+![Visualization](./scenario4/vis.drawio.png)
 
 ## Other Scenarios
 
