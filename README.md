@@ -99,9 +99,21 @@ kubectl apply -f setup.yaml
 
 ![Visualization](./scenario4/vis.drawio.png)
 
+## Scenario 5: Retries
+
+In this scenario, there are 2 applications deployed: a BFF and a BACKEND. The backend returns `500` with an error rate of 50%. The goal is to show how to silently retry this for calls from BFF as well as for external calls.
+
+This scenario comes with 3 `VirtualService` to be able to demonstrate the different angles.
+
+You'll run 3 tests:
+* call BACKEND without retries: you see 50% `500`
+* call BFF with retries: you see only `200` because the 3 retries will swallow any `500`
+* call BACKEND with retries: again, you only see `200`
+
+![Visualization](./scenario5/vis.drawio.png)
+
 ## Other Scenarios
 
-1. Retries
 1. circuit breaking
 1. JWT
 1. namespace base authX
