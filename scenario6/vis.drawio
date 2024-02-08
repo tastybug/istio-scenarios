@@ -1,0 +1,60 @@
+<mxfile host="Electron" modified="2024-02-08T12:11:05.217Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="hZqPT1PBgtNONJVz2Y8h" version="23.0.2" type="device">
+  <diagram name="Page-1" id="cWTKhKW8xR2mcrcdvLpz">
+    <mxGraphModel dx="1194" dy="824" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hGpC-fk8pfbG3-t0eklQ-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="I_P2_qD0Jl0lsfXRpeoM-8" target="hGpC-fk8pfbG3-t0eklQ-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="I_P2_qD0Jl0lsfXRpeoM-8" value="&quot;gw/shared-gateway&quot;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="340" y="205" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="m6qfPFcmYVWHdmUiW8hK-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="I_P2_qD0Jl0lsfXRpeoM-9" target="I_P2_qD0Jl0lsfXRpeoM-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="I_P2_qD0Jl0lsfXRpeoM-9" value="&quot;vs/shared-vs&lt;span style=&quot;background-color: initial;&quot;&gt;&quot;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="710" y="228" width="100" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="I_P2_qD0Jl0lsfXRpeoM-11" value="deploy/backend" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="1004" y="230.25" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="m6qfPFcmYVWHdmUiW8hK-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="I_P2_qD0Jl0lsfXRpeoM-14" target="I_P2_qD0Jl0lsfXRpeoM-11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="I_P2_qD0Jl0lsfXRpeoM-14" value="svc/backend-svc" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" parent="1" vertex="1">
+          <mxGeometry x="844" y="229" width="120" height="32.5" as="geometry" />
+        </mxCell>
+        <mxCell id="I_P2_qD0Jl0lsfXRpeoM-20" value="&amp;nbsp;&lt;b&gt;localhost:80/open&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="158" y="230" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="m6qfPFcmYVWHdmUiW8hK-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="I_P2_qD0Jl0lsfXRpeoM-20" target="I_P2_qD0Jl0lsfXRpeoM-8" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="246" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hGpC-fk8pfbG3-t0eklQ-1" value="ra/jwt-auth" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hGpC-fk8pfbG3-t0eklQ-3" value="This declares &lt;b&gt;authentication&lt;/b&gt;, meaning which JWT issuers there are and how to verify signatures." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="490" y="95" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hGpC-fk8pfbG3-t0eklQ-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1" source="hGpC-fk8pfbG3-t0eklQ-5" target="I_P2_qD0Jl0lsfXRpeoM-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hGpC-fk8pfbG3-t0eklQ-5" value="&amp;nbsp;&lt;b&gt;localhost:80/secure&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="158" y="261" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hGpC-fk8pfbG3-t0eklQ-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1" source="hGpC-fk8pfbG3-t0eklQ-7" target="I_P2_qD0Jl0lsfXRpeoM-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hGpC-fk8pfbG3-t0eklQ-7" value="&quot;authorizationpolicies/&lt;br&gt;require-jwt&quot;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="497" y="228" width="183" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="hGpC-fk8pfbG3-t0eklQ-9" value="&lt;i style=&quot;&quot;&gt;&lt;b&gt;&lt;font color=&quot;#ff0000&quot;&gt;/open : no authorization rule&lt;br&gt;/secure: JWT from X with claim Y&lt;/font&gt;&lt;/b&gt;&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="497" y="270" width="193" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

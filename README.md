@@ -112,6 +112,20 @@ You'll run 3 tests:
 
 ![Visualization](./scenario5/vis.drawio.png)
 
+
+## Scenario 6: JWT
+
+This scenario is pretty much a recreation of [this how-to](https://istio.io/latest/docs/tasks/security/authorization/authz-jwt/). 
+We have a BACKEND application running that has an `/open` endpoint (open for all) and a `/secure` endpoint that is meant to be secured with OpenID Connect.
+
+You'll run 4 tests:
+* access `/open` without a JWT but with the allowed HTTP method (`POST`)
+* access `/secure` without a JWT
+* access `/secure` with a valid JWT that is lacking a required claim
+* access `/secure` with a valid JWT that has the expected claim
+
+![Visualization](./scenario6/vis.drawio.png)
+
 ## Other Scenarios
 
 1. circuit breaking

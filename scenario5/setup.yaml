@@ -14,12 +14,6 @@ spec:
     - "silentretries.istiodemo.io"
     - "noretries.istiodemo.io"
 ---
-
-### 
-# 
-#
-###
-
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
@@ -194,7 +188,6 @@ spec:
         - containerPort: 8080
           name: http-port
           protocol: TCP
-
 ---
 apiVersion: v1
 kind: ServiceAccount
