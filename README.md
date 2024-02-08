@@ -113,7 +113,7 @@ You'll run 3 tests:
 ![Visualization](./scenario5/vis.drawio.png)
 
 
-## Scenario 6: JWT
+## Scenario 6: End User AuthX with JWT
 
 This scenario is pretty much a recreation of [this how-to](https://istio.io/latest/docs/tasks/security/authorization/authz-jwt/). 
 We have a BACKEND application running that has an `/open` endpoint (open for all) and a `/secure` endpoint that is meant to be secured with OpenID Connect.
@@ -126,8 +126,21 @@ You'll run 4 tests:
 
 ![Visualization](./scenario6/vis.drawio.png)
 
+## Scenario 7: Service to Service AuthX
+
+We have a hidden BACKEND application running in namespace `blue`, which has an `/open` endpoint (open for all) and a `/secure` endpoint that is only to be called from namespace `green`. In `ns:green` as well as `ns:red`, there are two separate BFF applications running, each of which trying to connect to <http://backend-svc.blue.svc.cluster.local:8000/secure>. Only calls from `green` are allowed.
+
+Some things to note:
+* client and host must be "on Istio", otherwise the participants are without identity and authorization fails
+* authorization rules can be complex and take source, destination, paths, headers and such into account
+* the mTLS certificate can be forwarded to upstream as a HTTP header, but this behaviour has to be configured (details [here](https://istio.io/latest/docs/ops/configuration/traffic-management/network-topologies/#forwarding-external-client-attributes-ip-address-certificate-info-to-destination-workloads))
+
+You'll run 2 tests:
+* call BFF in `red` using `Host: broken.istiodemo.io` and see this fail due to `403` from BACKEND
+* call BFF in `green` using `Host: works.istiodemo.io` and see this work
+
+![Visualization](./scenario7/vis.drawio.png)
+
 ## Other Scenarios
 
 1. circuit breaking
-1. JWT
-1. namespace base authX
